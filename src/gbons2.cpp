@@ -400,7 +400,7 @@ struct Worker
 
 	Timer myTimer;
 
-	Config cfg;
+	const Config & cfg;
 	Statistics stats;
 	MemUsage memUsage;
 	std::vector<PointInfo> pointInfo;
