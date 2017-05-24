@@ -397,6 +397,7 @@ struct Worker
 	};
 	
 	Worker(const Config & _cfg);
+	~Worker();
 
 	Timer myTimer;
 
@@ -955,7 +956,10 @@ Worker::Worker(const Config & _cfg) : cfg(_cfg), cdt(cfg.precision), elimination
 		throw std::runtime_error("Invalid config: No out given");
 	}
 }
-	
+
+Worker::~Worker() {
+	delete eliminationOrder;
+}
 	
 void Worker::putHeader(std::size_t pointCount) {
 	eliminationOrder->putHeader(pointCount);
